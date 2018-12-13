@@ -25,26 +25,27 @@ function showUser(str) {
 </script>
 </head>
 <body>
-
-<form>
+ <div>
+<h3>Selectionner la promotion :</h3>
+<form class="">
 <select name="users" onchange="showUser(this.value)">
-  <option value="">select id autuer</option>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
+  <option value="">select id prom</option>
+  <option value="1">1L</option>
+  <option value="2">2L</option>
+  <option value="3">3L</option>
+  <option value="4">1MGL</option>
+  <option value="5">1MRT</option>
+  <option value="6">1MGI</option>
+  <option value="7">2MGL</option>
+  <option value="8">2MRT</option>
+  <option value="9">2MGI</option>
    </select>
 </form>
+     </div>   
 <br>
 
-
 <h1>EMPLOI DU TOMPS :</h1>
-<div id="txtHint"><b>Person info will be listed here...</b></div>
+<div id="txtHint"><b>Selectionner la promotion ...</b></div>
 
 
 

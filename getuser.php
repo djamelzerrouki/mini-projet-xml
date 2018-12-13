@@ -24,8 +24,7 @@ $con = mysqli_connect('localhost','root','root','departemant');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
-echo "jimmi :p ! ";
-echo "jimmi :p ! ";
+ 
 
 mysqli_select_db($con,"ajax_demo");
 $query = "SELECT jour, heure_debut,heure_fin,nom_ens ,nom_mod,nom_salle  
