@@ -6,14 +6,14 @@ if($mysqli->connect_error) {
 
  
 $sql = "SELECT nom_speci, niveau, jour, heure_debut, heure_fin, nom_mod, nom_ens, nom_salle
- from cours,modules,salles,enseignant,spécialité,promotion
+ from cours,modules,salles,enseignant,`spécialité`,promotion
  WHERE cours.id_mod=modules.id_mod and enseignant.id_ens=cours.id_ens and 
- salles.id_salle=cours.id_salle  and spécialité.id_speci=promotion.id_speci and
+ salles.id_salle=cours.id_salle  and `spécialité`.id_speci=promotion.id_speci and
  cours.id_promo =promotion.id_promo and cours.id_promo =?";
  
 
 $stmt = $mysqli->prepare($sql);
-$stmt->bind_param("i", $_GET['id_promo']);
+ $stmt->bind_param("i", $_GET['id_promo']);
 $stmt->execute();
 $stmt->store_result();
 /* Insertion de la variable */
