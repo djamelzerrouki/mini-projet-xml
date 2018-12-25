@@ -4,15 +4,17 @@ if($mysqli->connect_error) {
   exit('Could not connect');
 }
 
-
+// 
 $sql = "SELECT nom_speci, niveau, jour, heure_debut, heure_fin, nom_mod, nom_ens, nom_salle
  from cours,modules,salles,enseignant,specialite s,promotion
  WHERE cours.id_mod=modules.id_mod and enseignant.id_ens=cours.id_ens and 
  salles.id_salle=cours.id_salle  and s.id_speci=promotion.id_speci and
  cours.id_promo =promotion.id_promo and cours.id_promo =?";
  
-
+// prepare stment
 $stmt = $mysqli->prepare($sql);
+   /* Récupération des valeurs id_promo  */
+
 $stmt->bind_param("i", $_GET['id_promo']);
 $stmt->execute();
 $stmt->store_result();
@@ -20,7 +22,8 @@ $stmt->store_result();
 $stmt->bind_result($nom_speci,$niveau,$jour, $heure_debut,$heure_fin ,$nom_ens ,$nom_mod,$nom_salle);
      
    /* Récupération des valeurs */
-   $filename =$_GET['nom'];
+   //$filename =$_GET['nom'];
+   $filename ="emploiQ3";
    $filePath = $filename.'.xml';
    $dom     = new DOMDocument('1.0', 'utf-8'); 
    //  $stmt->fetch();
