@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title> Q4 Afficher les etudiant et les modulesde chaque promotion </title>
 
       <link rel="stylesheet" href="css/style.css">
+<style>
+h1 {
+  color: white;
+  font-family: verdana;
+  font-size: 300%;
+
+}
+h2  {
+  color: white;
+  font-family: courier;
+  font-size: 160%;
+}
+</style>
 </head>
+ 
 
 <body>
 
@@ -59,7 +73,7 @@ function  ChangeValeur(str) {
 }
 </script>
 
-<div id="table_emploi"></div>
+  <div class="container" id="table_emploi"></div>
 
 </body>
 </html>
