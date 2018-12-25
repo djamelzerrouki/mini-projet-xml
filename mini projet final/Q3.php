@@ -50,7 +50,8 @@ $seance = $dom->createElement('seance');
   
 $stmt->fetch();
 $stmt->close();
-echo $emploi;
-//http://127.0.0.1/mini_projet/createxmlQ3.php?id_promo=2
+echo "<script>alert('le fichier xml est créer' )</script>"; 
+echo "<h2>le fichier xml est créer </h2>";
+//http://localhost/projects/eclipse-workspacePHP/projct/phbdataBase/mini%20projet%20final/Q3.php?id_promo=1
  
 ?> 
