@@ -4,12 +4,15 @@ if($mysqli->connect_error) {
   exit('Could not connect');
 }
 
-// 
+//  Query 
 $sql = "SELECT nom_speci, niveau, jour, heure_debut, heure_fin, nom_mod, nom_ens, nom_salle
- from cours,modules,salles,enseignant,specialite s,promotion
- WHERE cours.id_mod=modules.id_mod and enseignant.id_ens=cours.id_ens and 
- salles.id_salle=cours.id_salle  and s.id_speci=promotion.id_speci and
- cours.id_promo =promotion.id_promo and cours.id_promo =?";
+ from cours c,modules m,salles sal,enseignant e,specialite s,promotion p
+ WHERE c.id_mod=m.id_mod and 
+  e.id_ens=c.id_ens and 
+  sal.id_salle=c.id_salle and 
+  s.id_speci=p.id_speci and 
+  c.id_promo =p.id_promo and 
+  c.id_promo =?";
  
 // prepare stment
 $stmt = $mysqli->prepare($sql);
@@ -47,7 +50,7 @@ $seance = $dom->createElement('seance');
   
 $stmt->fetch();
 $stmt->close();
-echo "<h2>le fichier xml est cr&eacute;er </h2>";
+echo $emploi;
 //http://127.0.0.1/mini_projet/createxmlQ3.php?id_promo=2
  
 ?> 
