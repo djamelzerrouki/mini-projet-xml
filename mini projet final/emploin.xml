@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<emploi promotion="1MGL">
-<seance jour="Mardi" debut="08:00:00" fin="09:30:00" prof="Recherche_bibliographique" module="enseig2" salle="12"/>
-<seance jour="Jeudi" debut="08:00:00" fin="09:30:00" prof="Anglais" module="enseig3" salle="anphi_B"/>
-<seance jour="Jeudi" debut="09:30:00" fin="11:00:00" prof="Web_2.0" module="enseig3" salle="15"/></emploi>
