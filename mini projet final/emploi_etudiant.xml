@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<promotion option="MGL" niveau="1">
+    <etudiants>
+        <etudiant numInscription="1" nom="etud1" prenom="etud1"/>
+        <etudiant numInscription="2" nom="etud2" prenom="etud2"/>
+        <etudiant numInscription="4" nom="etud4" prenom="etud4"/>
+    </etudiants>
+    <modules>
+        <module idModule="4" nomModule="Anglais"/>
+        <module idModule="5" nomModule="SMA"/></modules></promotion>

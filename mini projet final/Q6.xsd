@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <!-- définition simple type -->
+    <xs:simpleType name="type_spec">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MGL"/>
+            <xs:enumeration value="MGI"/>
+            <xs:enumeration value="MRT"/>
+            <xs:enumeration value="L"/>
+        </xs:restriction>
+    </xs:simpleType>
+     <xs:simpleType name="type_niveau">
+     <xs:restriction base="xs:int">
+         <xs:pattern value="[1-3]"></xs:pattern>
+     </xs:restriction>
+ </xs:simpleType>
+    <xs:simpleType name="type_nom_mod">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([a-z A-Z])*|([a-z A-Z])*[0-9]|([a-z A-Z])*[0-9][. - _][0-9]|
+                ([a-z A-Z])*[0-9][. - _]([a-z A-Z])*|([a-z A-Z])*[. - _]([a-z A-Z])*"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- définition complex type -->
+    <xs:complexType name="type_etds">
+        <xs:sequence>
+            <xs:element ref="etudiant"  maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="type_etd">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="numInscription" type="type_union" use="required"/> 
+                <xs:attribute  name="nom" type="xs:string" use="required" />
+                <xs:attribute  name="prenom" type="xs:string" use="required" />
+                <xs:attribute  name="id_promo" type="xs:int" use="required" />
+            </xs:extension>
+        </xs:simpleContent>  
+    </xs:complexType>
+    <xs:complexType name="type_mods">
+        <xs:sequence>
+            <xs:element ref="module" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="type_mod">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="idModule" type="type_union" use="required"/> 
+                <xs:attribute  name="nomModule" type="type_nom_mod" use="required" /> 
+                <xs:attribute  name="id_promo" type="xs:int"  use="required"/>
+            </xs:extension>
+        </xs:simpleContent>  
+    </xs:complexType>
+    <xs:simpleType name="type_union">
+        <xs:union memberTypes="xs:int xs:string"></xs:union>
+    </xs:simpleType>
+    <!-- définition element -->
+    <xs:element name="etudiants" type="type_etds"/>
+    <xs:element name="etudiant" type="type_etd"/>
+    <xs:element name="modules" type="type_mods"/>
+     <xs:element name="module" type="type_mod"/>
+    
+    <!-- définition la racine de document xml -->
+    <xs:element name="promotion">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="etudiants" minOccurs="1"/>
+                <xs:element ref="modules" minOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="option" type="type_spec" use="required"/>
+            <xs:attribute name="niveau" type="type_niveau" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
