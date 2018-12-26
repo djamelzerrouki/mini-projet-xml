@@ -8,7 +8,9 @@
 	$nom_salle = $_GET['salle'];
 
      $dom = new DOMDocument();
+// load data for file emploi.xml 
 	 $dom->load('emploi.xml'); 
+// add in to file emploi.xml 
 	 $seance = $dom->createElement('seance');
      $seance->setAttribute('jour', $jour);
 	 $seance->setAttribute('debut', $heure_debut);

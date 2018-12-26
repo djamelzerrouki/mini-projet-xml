@@ -96,7 +96,7 @@ function Ajout() {
 	var select = document.getElementById("jour" );
     var jour = select.options[select.selectedIndex].value;
 	var select = document.getElementById("module" );
-    var module = select.options[select.selectedIndex].value;
+    var module =select.options[select.selectedIndex].value;
 	var select = document.getElementById("salle" );
     var salle = select.options[select.selectedIndex].value;
 	var select = document.getElementById("prof" );
@@ -112,7 +112,7 @@ function Ajout() {
 	  document.getElementById("text").innerText = "Affichage d' emploi du temps" ;
     }
   };
-  xhttp.open("GET", "Ajouter_Seance.php?jour="+jour+"&debut="+debut+"&fin="+fin+"&prof="+prof+
+  xhttp.open("GET", "AddCourseInEmploi.php?jour="+jour+"&debut="+debut+"&fin="+fin+"&prof="+prof+
                 "&module="+module+"&salle="+salle , false);
   xhttp.send();
   
@@ -154,22 +154,27 @@ function loadDoc() {
     
 }
 </script>
+    
 <?php
  $mysqli = new mysqli("localhost", "root", "root", "departemant");
 if($mysqli->connect_error) {
   exit('Could not connect');
 }
-
+/*SELECT nom_ens from enseignant */
 $sql = "SELECT nom_ens from enseignant";
+  /* SELECT nom_mod from modules */  
 $sql1 = "SELECT nom_mod from modules";
+/* SELECT nom_salle from salles */
 $sql2 =  "SELECT nom_salle from salles";
- 
+ // stmt for sql "enseignant"
 $stmt = $mysqli->prepare($sql);
 $stmt->execute();
-$stmt->store_result();
+$stmt->store_result();    
+ // stmt for sql "modules"
 $stmt1 = $mysqli->prepare($sql1);
 $stmt1->execute();
 $stmt1->store_result();
+ // stmt for sql "salles"
 $stmt2 = $mysqli->prepare($sql2);
 $stmt2->execute();
 $stmt2->store_result();
