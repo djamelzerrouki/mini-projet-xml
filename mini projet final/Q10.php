@@ -28,7 +28,15 @@ h2  {
     .center {
   margin: auto;
   width: 50%;
-   padding: 10px;
+   padding: 10px;  
+         
+}
+      .formuler {
+  margin: auto;
+  width: 60%;
+   padding: 10px;  
+   background-color: rgba(255, 255, 255, 0.2);
+        
 }
 </style>
 </head>
@@ -47,7 +55,8 @@ input[type=text], input[type=time],input[type=file], select {
        margin:auto;
 width: 50%;
    padding: 10px;
-  background-color: #5f2c82;
+
+       background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -59,8 +68,8 @@ width: 50%;
 
 div {
       width: 50%;
-  border-radius: 50px;
-   padding: 50px;
+  border-radius: 10px;
+   padding: 10px;
 }
 label{
   width: 100%;
@@ -99,7 +108,7 @@ function Ajout() {
     if (this.readyState == 4 && this.status == 200) {
 	  loadDoc();
 	  suprimer_val();
-	  document.getElementById("ii").innerText = "Ajout d'une seance est bien fait" ;
+	  document.getElementById("text").innerText = "Affichage d' emploi du temps" ;
     }
   };
   xhttp.open("GET", "Ajouter_Seance.php?jour="+jour+"&debut="+debut+"&fin="+fin+"&prof="+prof+
@@ -171,11 +180,12 @@ $stmt2->bind_result($nom_salle);
      ?>
   
  
- <h1>Emploi du temps </h1>
-   
+    <h1>Emploi du temps </h1>
 
-  <h2>Ajouter un emploi </h2>
-<div class="center">
+
+<div class="formuler">
+      <h2>Ajouter un emploi </h2>
+
 <form>  
 <label for="jour">Jour</label>
     <select id="jour" name="jour">
@@ -228,10 +238,13 @@ $stmt2->bind_result($nom_salle);
          
     <button type="button" name="button" onClick="Ajout()">Ajouter</button>
  </form> 
-    
+    </div>
+     <div class="center">
+  <h1 id="text"></h1>
      <table id="table" ></table>
- <div id="ii"></div>
-</div>
+         </div>
+
+
 
 
 
