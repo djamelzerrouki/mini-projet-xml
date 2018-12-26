@@ -3,6 +3,13 @@
 <head>
     <link rel="stylesheet" href="css/style.css">
 <style>
+  * {margin: 0; padding: 0;}
+#container {height: 100%; width:100%; font-size: 0;}
+#left, #middle, #right {display: inline-block; *display: inline; vertical-align: top; font-size: 12px;}
+#left {width: 25%;       background-color: rgba(255, 255, 255, 0.2);
+}
+#middle {width: 50%;  }
+#right {width: 25%; background: yellow;}
 h1 {
   color: white;
   font-family: verdana;
@@ -31,18 +38,9 @@ h2  {
    padding: 10px;  
          
 }
-      .formuler {
-  margin: auto;
-  width: 60%;
-   padding: 10px;  
-   background-color: rgba(255, 255, 255, 0.2);
-        
-}
-</style>
-</head>
-<body>
-<style>
-input[type=text], input[type=time],input[type=file], select {
+      
+    
+    input[type=text], input[type=time],input[type=file], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -79,8 +77,11 @@ label{
   display: inline-block;
    box-sizing: border-box;
 } 
- 
 </style>
+     
+</head>
+<body>
+ 
 <script>
 function suprimer_val() {
 	 document.getElementById("jour" ).value='';
@@ -150,8 +151,7 @@ function loadDoc() {
    
   }
   document.getElementById("table").innerHTML = table;
-  
-  
+    
 }
 </script>
 <?php
@@ -178,13 +178,12 @@ $stmt->bind_result($nom_ens);
 $stmt1->bind_result($nom_mod);
 $stmt2->bind_result($nom_salle);
      ?>
-  
  
     <h1>Emploi du temps </h1>
 
-
-<div class="formuler">
-      <h2>Ajouter un emploi </h2>
+ <div >
+    <div id="left">
+       <h2>Ajouter un emploi </h2>
 
 <form>  
 <label for="jour">Jour</label>
@@ -238,15 +237,16 @@ $stmt2->bind_result($nom_salle);
          
     <button type="button" name="button" onClick="Ajout()">Ajouter</button>
  </form> 
-    </div>
-     <div class="center">
+      
+ </div>
+    <div id="middle"><div class="center">
   <h1 id="text"></h1>
      <table id="table" ></table>
-         </div>
-
-
-
-
-
+         </div></div>
+    <div id="right">Right Side Menu</div>
+</div>
 </body>
 </html>
+
+
+ 
