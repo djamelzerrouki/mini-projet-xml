@@ -1,8 +1,40 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+<style>
+h1 {
+  color: white;
+  font-family: verdana;
+  font-size: 300%;
+
+}
+h2  {
+  color: white;
+  font-family: courier;
+  font-size: 160%;
+    
+}
+  select {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+    
+    .center {
+  margin: auto;
+  width: 50%;
+   padding: 10px;
+}
+</style>
+</head>
 <body>
 <style>
-input[type=text],input[type=date],input[type=time],input[type=file], select {
+input[type=text], input[type=time],input[type=file], select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -11,7 +43,7 @@ input[type=text],input[type=date],input[type=time],input[type=file], select {
   border-radius: 4px;
   box-sizing: border-box;
 } 
-h1,button[name=button] {
+ button[name=button] {
   width: 100%;
   background-color: #4CAF50;
   color: white;
@@ -21,38 +53,14 @@ h1,button[name=button] {
   border-radius: 4px;
   cursor: pointer;
 }
-button[name=btn] {
-	           background-color: #D0E4F5;
-			   padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  
-}
+ 
 
 div {
   border-radius: 50px;
   background-color: #f2f2f2;
   padding: 50px;
 }
-table,th,td {
-  border : 1px solid black;
-  border-collapse: collapse;
-   margin-left: auto;
-    margin-right: auto;
-	 border: 4px solid #D0E4F5;
-	 
-	
-	 
-	  border-radius: 30px;
-  
-	width: 100%;
-}
-th,td {
-  
-  padding: 10px 20px 10px 20px;
-}
+ 
 </style>
 <script>
 function suprimer_val() {
