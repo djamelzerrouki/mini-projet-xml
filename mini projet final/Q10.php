@@ -170,12 +170,10 @@ $stmt1->bind_result($nom_mod);
 $stmt2->bind_result($nom_salle);
      ?>
   
-  </br>
- </br>
+ 
  <h1>Emploi du temps </h1>
- </br>
-  
- <table id="table" ></table>
+   
+
   <h2>Ajouter un emploi </h2>
 <div class="center">
 <form>  
@@ -230,6 +228,8 @@ $stmt2->bind_result($nom_salle);
          
     <button type="button" name="button" onClick="Ajout()">Ajouter</button>
  </form> 
+    
+     <table id="table" ></table>
  <div id="ii"></div>
 </div>
 
