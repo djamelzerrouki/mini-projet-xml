@@ -15,10 +15,27 @@ h2  {
   color: white;
   font-family: courier;
   font-size: 160%;
+    
+}
+  select {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+    
+    .center {
+  margin: auto;
+  width: 50%;
+   padding: 10px;
 }
 </style>
 </head>
- 
+
+  
 
 <body>
 
