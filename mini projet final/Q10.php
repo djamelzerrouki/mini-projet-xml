@@ -44,22 +44,32 @@ input[type=text], input[type=time],input[type=file], select {
   box-sizing: border-box;
 } 
  button[name=button] {
-  width: 100%;
-  background-color: #4CAF50;
+       margin:auto;
+width: 50%;
+   padding: 10px;
+  background-color: #5f2c82;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
+ }
  
 
 div {
+      width: 50%;
   border-radius: 50px;
-  background-color: #f2f2f2;
-  padding: 50px;
+   padding: 50px;
 }
+label{
+  width: 100%;
+   margin: 8px 0;
+ color: white;
+
+  display: inline-block;
+   box-sizing: border-box;
+} 
  
 </style>
 <script>
@@ -167,7 +177,7 @@ $stmt2->bind_result($nom_salle);
   
  <table id="table" ></table>
   <h2>Ajouter un emploi </h2>
-<div>
+<div class="center">
 <form>  
 <label for="jour">Jour</label>
     <select id="jour" name="jour">
