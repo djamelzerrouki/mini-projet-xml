@@ -6,7 +6,7 @@
   * {margin: 0; padding: 0;}
 #container {height: 100%; width:100%; font-size: 0;}
 #left, #middle, #right {display: inline-block; *display: inline; vertical-align: top; font-size: 12px;}
-#left {width: 25%;       background-color: rgba(255, 255, 255, 0.2);
+#left {width: 40%;       background-color: rgba(255, 255, 255, 0.2);
 }
 #middle {width: 50%;  }
 #right {width: 25%; background: yellow;}
@@ -243,8 +243,7 @@ $stmt2->bind_result($nom_salle);
   <h1 id="text"></h1>
      <table id="table" ></table>
          </div></div>
-    <div id="right">Right Side Menu</div>
-</div>
+ </div>
 </body>
 </html>
 
