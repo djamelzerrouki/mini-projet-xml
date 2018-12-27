@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Q4 Afficher les etudiant et les modulesde chaque promotion </title>
+	<title> Q4 afficher l’emploi du temps  </title>
 
       <link rel="stylesheet" href="css/style.css">
 <style>
@@ -39,7 +39,7 @@ h2  {
 
 <body>
 
-<h1> Afficher les etudiant et les modulesde chaque promotion</h1>
+<h1> Afficher l’emploi du temps  de chaque promotion</h1>
 
  <?php
  $mysqli = new mysqli("localhost", "root", "root", "departemant");
@@ -56,6 +56,7 @@ $stmt->store_result();
 /* Insertion de la variable */
 $stmt->bind_result($nom_speci,$niveau,$id_promo);
      ?>
+<div class="center">
 
 <form >
 <h2>Choisir la promotion:</h2>   
@@ -68,6 +69,8 @@ $stmt->bind_result($nom_speci,$niveau,$id_promo);
 	?>
 </select>
 </form>
+ </div>
+
 </br>
 </br>
 <script >
@@ -90,7 +93,7 @@ function  ChangeValeur(str) {
 }
 </script>
 
-  <div class="container" id="table_emploi"></div>
+  <div class="center" id="table_emploi"></div>
 
 </body>
 </html>
