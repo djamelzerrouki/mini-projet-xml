@@ -2,7 +2,8 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
    
     <!-- définition la racine de document xml -->
-    <xs:element name="emploi">
+    <!-- définition  complex Type   -->
+     <xs:element name="emploi">
         <xs:complexType>
             <xs:sequence>
                 <xs:element ref="seance" maxOccurs="unbounded" />
@@ -21,7 +22,7 @@
                     <xs:attribute  name="fin" type="xs:time" use="required" />
                     <xs:attribute  name="prof" type="xs:string" use="required"/>
                     <xs:attribute  name="module" type="xs:string" use="required" />
-                    <xs:attribute  name="salle" type="type_union" use="required" />
+                    <xs:attribute name="salle" type="xs:string"  use="required"/>
                 </xs:extension>
             </xs:simpleContent>
         </xs:complexType>
@@ -29,36 +30,17 @@
     
     <!-- définition simple type -->
     <!-- spec  simple type -->
-    
     <xs:simpleType name="type_spec">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="2MGL"/>
-            <xs:enumeration value="2MGI"/>
-            <xs:enumeration value="2MRT"/>
-            <xs:enumeration value="1MGL"/>
-            <xs:enumeration value="1MGI"/>
-            <xs:enumeration value="1MRT"/>
-            <xs:enumeration value="3L"/>
-            <xs:enumeration value="2L"/>
-            <xs:enumeration value="1L"/>
-       
         <xs:restriction base="xs:string">
             <xs:pattern value="2MGL|2MGI|2MRT|1MGL|1MGI|1MRT|1L|2L|3L"></xs:pattern>        
         </xs:restriction>
     </xs:simpleType>
-    <!-- jour  simple type -->
     
+    <!-- jour  simple type -->
     <xs:simpleType name="type_jour">
         <xs:restriction base="xs:string">
             <xs:pattern value="dimanche|lundi|mardi|mercredi|jeudi"></xs:pattern>        
         </xs:restriction>
     </xs:simpleType>
-    
-    
-    <xs:simpleType name="type_union">
-        <xs:union memberTypes="xs:int xs:string"></xs:union>
-    </xs:simpleType>
        
-    
-        
 </xs:schema>
