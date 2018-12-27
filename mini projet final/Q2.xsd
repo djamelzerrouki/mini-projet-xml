@@ -41,6 +41,9 @@
             <xs:enumeration value="3L"/>
             <xs:enumeration value="2L"/>
             <xs:enumeration value="1L"/>
+       
+        <xs:restriction base="xs:string">
+            <xs:pattern value="2MGL|2MGI|2MRT|1MGL|1MGI|1MRT|1L|2L|3L"></xs:pattern>        
         </xs:restriction>
     </xs:simpleType>
     <!-- jour  simple type -->
