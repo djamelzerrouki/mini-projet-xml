@@ -1,32 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-    <!-- définition simple type -->
-    <xs:simpleType name="type_spec">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="2MGL"/>
-            <xs:enumeration value="2MGI"/>
-            <xs:enumeration value="2MRT"/>
-            <xs:enumeration value="1MGL"/>
-            <xs:enumeration value="1MGI"/>
-            <xs:enumeration value="1MRT"/>
-            <xs:enumeration value="3L"/>
-            <xs:enumeration value="2L"/>
-            <xs:enumeration value="1L"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="type_jour">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="Dimenche"/>
-            <xs:enumeration value="Lundi"/>
-            <xs:enumeration value="Mardi"/>
-            <xs:enumeration value="Mercredi"/>
-            <xs:enumeration value="Jeudi"/>
-        </xs:restriction>
-    </xs:simpleType>
-    <xs:simpleType name="type_union">
-        <xs:union memberTypes="xs:int xs:string"></xs:union>
-    </xs:simpleType>
-        <!-- définition element -->
+   
+    <!-- définition la racine de document xml -->
+    <xs:element name="emploi">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="seance" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute name="promotion" type="type_spec" use="required"></xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- définition element -->
     <xs:element name="seance">
         <xs:complexType>
             <xs:simpleContent>
@@ -40,15 +25,37 @@
                 </xs:extension>
             </xs:simpleContent>
         </xs:complexType>
-        </xs:element>
-    
-         <!-- définition la racine de document xml -->
-    <xs:element name="emploi">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="seance" maxOccurs="unbounded" />
-            </xs:sequence>
-            <xs:attribute name="promotion" type="type_spec" use="required"></xs:attribute>
-        </xs:complexType>
     </xs:element>
+    
+    <!-- définition simple type -->
+    <!-- spec  simple type -->
+    
+    <xs:simpleType name="type_spec">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="2MGL"/>
+            <xs:enumeration value="2MGI"/>
+            <xs:enumeration value="2MRT"/>
+            <xs:enumeration value="1MGL"/>
+            <xs:enumeration value="1MGI"/>
+            <xs:enumeration value="1MRT"/>
+            <xs:enumeration value="3L"/>
+            <xs:enumeration value="2L"/>
+            <xs:enumeration value="1L"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- jour  simple type -->
+    
+    <xs:simpleType name="type_jour">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="dimanche|lundi|mardi|mercredi|jeudi"></xs:pattern>        
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
+    <xs:simpleType name="type_union">
+        <xs:union memberTypes="xs:int xs:string"></xs:union>
+    </xs:simpleType>
+       
+    
+        
 </xs:schema>
