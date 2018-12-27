@@ -1,4 +1,7 @@
  <?php
+
+//http://localhost/projects/eclipse-workspacePHP/projct/phbdataBase/mini%20projet%20final/Q3.php?id_promo=1
+
 $mysqli = new mysqli("localhost", "root", "root", "departemant");
 if($mysqli->connect_error) {
   exit('Could not connect');
@@ -51,7 +54,7 @@ $seance = $dom->createElement('seance');
 $stmt->fetch();
 $stmt->close();
 echo "<script>alert('le fichier xml est créer' )</script>"; 
-echo "<h2>le fichier xml est créer </h2>";
-//http://localhost/projects/eclipse-workspacePHP/projct/phbdataBase/mini%20projet%20final/Q3.php?id_promo=1
+ 
+
  
 ?> 
