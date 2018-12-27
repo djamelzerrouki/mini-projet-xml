@@ -8,40 +8,27 @@
             <body>
                 <table align="center" border="1">
                     <tr>
-                        <th bgcolor="#55608f">jour</th>
+                        <th >jour</th>
                         <th>debut</th>
                         <th>fin</th>
                         <th>prof</th>
                         <th>module</th>
                         <th>salle</th>
                     </tr>
-
+                    
                     <xsl:for-each select="/emploi/seance">
                         <tr>
-                            <td>
-                                <xsl:value-of select="@jour"/>
-                            </td>
-                            <td>
-                                <xsl:value-of select="@debut"/>
-                            </td>
-                            <td>
-                                <xsl:value-of select="@fin"/>
-                            </td>
-                            <td>
-                                <xsl:value-of select="@prof"/>
-                            </td>
-                            <td>
-                                <xsl:value-of select="@module"/>
-                            </td>
-                            <td>
-                                <xsl:value-of select="@salle"/>
-                            </td>
+                            <td> <xsl:value-of select="@jour"/> </td>
+                            <td> <xsl:value-of select="@debut"/> </td>
+                            <td> <xsl:value-of select="@fin"/> </td>
+                            <td>  <xsl:value-of select="@prof"/>  </td>
+                            <td> <xsl:value-of select="@module"/>  </td>
+                            <td>  <xsl:value-of select="@salle"/> </td>
                         </tr>
                     </xsl:for-each>
-
                 </table>
             </body>
         </html>
     </xsl:template>
-
+    
 </xsl:stylesheet>
