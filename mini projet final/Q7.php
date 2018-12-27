@@ -45,8 +45,9 @@ $stmt2->bind_result( $id_mod, $nom_mod);
 
      
    /* Récupération des valeurs */
-    
-     $filename =$_GET['nom'];
+  $filename ="fileQ7";
+
+    // $filename =$_GET['nom'];
    $filePath = $filename.'.xml';
    
    $dom     = new DOMDocument('1.0', 'utf-8'); 

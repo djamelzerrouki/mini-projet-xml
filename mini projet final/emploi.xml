@@ -8,4 +8,7 @@
     <seance jour="Dimanche" debut="09:30" fin="11:00" prof="nom6" module="M2" salle="6"/>
     <seance jour="Dimanche" debut="08:00" fin="09:30" prof="nom7" module="M1" salle="7"/>
     <seance jour="Dimanche" debut="09:30" fin="11:00" prof="nom8" module="M3" salle="8"/>
-   <seance jour="Lundi" debut="08:00" fin="09:30" prof="nom13" module="M10" salle="Amphi"/><seance jour="Mercredi" debut="14:00" fin="15:30" prof="nom9" module="M7" salle="Amphi"/><seance jour="Mardi" debut="14:00" fin="15:30" prof="nom3" module="M1" salle="2"/></emploi>
+   <seance jour="Lundi" debut="08:00" fin="09:30" prof="nom13" module="M10" salle="Amphi"/>
+    <seance jour="Mercredi" debut="14:00" fin="15:30" prof="nom9" module="M7" salle="Amphi"/>
+    <seance jour="Mardi" debut="14:00" fin="15:30" prof="nom3" module="M1" salle="2"/>
+</emploi>
