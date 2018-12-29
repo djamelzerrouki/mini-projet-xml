@@ -3,20 +3,21 @@ $mysqli = new mysqli("localhost", "root", "root", "departemant");
 if($mysqli->connect_error) {
   exit('Could not connect');
 }
-
+// sql for student 
 $sql = "SELECT  num_et, nom_et, prenom_et
  from specialite s,promotion,etudiant
  WHERE etudiant.id_promo=promotion.id_promo and 
 s.id_speci=promotion.id_speci and
  promotion.id_promo=?";
- 
+ // sql for specialite
  $sql1 = "SELECT  nom_speci, niveau
  from specialite s,promotion
  WHERE 
 s.id_speci=promotion.id_speci and
  promotion.id_promo=?";
  
- 
+  // sql for modules
+
  $sql2 = "SELECT  id_mod, nom_mod
  from specialite s,promotion,modules
  WHERE 
@@ -24,32 +25,33 @@ s.id_speci=promotion.id_speci and
  s.id_speci=promotion.id_speci and
  promotion.id_promo=?";
  
-
+  // prepare stetment pour les etudians
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("i", $_GET['id_promo']);
 $stmt->execute();
 $stmt->store_result();
+
+  // prepare stetment pour les specialites
 $stmt1 = $mysqli->prepare($sql1);
 $stmt1->bind_param("i", $_GET['id_promo']);
 $stmt1->execute();
 $stmt1->store_result();
+
+  // prepare stetment pour les modules
 $stmt2 = $mysqli->prepare($sql2);
 $stmt2->bind_param("i", $_GET['id_promo']);
 $stmt2->execute();
 $stmt2->store_result();
 
-/* Insertion de la variable */
+//  SELECT VARIABLE... for sql , sql1 , sql2
 $stmt->bind_result($num_et, $nom_et, $prenom_et);
 $stmt1->bind_result($nom_speci,$niveau);
 $stmt2->bind_result( $id_mod, $nom_mod);
 
      
-   /* Récupération des valeurs */
-  $filename ="fileQ7";
+   $filename ="fileQ7";
+    $filePath = $filename.'.xml';
 
-    // $filename =$_GET['nom'];
-   $filePath = $filename.'.xml';
-   
    $dom     = new DOMDocument('1.0', 'utf-8'); 
      $stmt1->fetch();    
      $promotion = $dom->createElement('promotion');
