@@ -84,8 +84,6 @@ $stmt2->bind_result( $id_mod, $nom_mod);
   
 $stmt->fetch();
 $stmt->close();
-echo "</br>";
-echo "<h2>le fichier xml est cr&eacute;er</h2>";
-//http://127.0.0.1/mini_projet/createxmlQ3.php?id_promo=2
- 
+echo "<script>alert('le fichier xml est créer' )</script>"; 
+  
 ?> 

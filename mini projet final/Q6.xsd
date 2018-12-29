@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"> 
-    
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
     <!-- definition des elements  -->
     <xs:element name="promotion" type="type_promotion"/>
     <xs:element name="etudiants" type="type_etudiants"/>
     <xs:element name="etudiant" type="type_etudiant"/>
     <xs:element name="modules" type="type_modules"/>
-    <xs:element name="module" type="type_module"/>    
-    
+    <xs:element name="module" type="type_module"/>
+
     <!-- definition complex Type promotion -->
     <xs:complexType name="type_promotion">
-        <xs:sequence>    
-            <xs:element ref="etudiants" minOccurs="1" maxOccurs="unbounded"/>   
+        <xs:sequence>
+            <xs:element ref="etudiants" minOccurs="1" maxOccurs="unbounded"/>
             <xs:element ref="modules" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="option" type="xs:string" use="required"/>
         <xs:attribute name="niveau" type="xs:int" use="required"/>
     </xs:complexType>
-    
+
     <!-- definition complex Type   etudiants -->
     <xs:complexType name="type_etudiants">
-        <xs:sequence>    
+        <xs:sequence>
             <xs:element ref="etudiant" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
-    
+
     <!-- definition complex Type   etudiant -->
     <xs:complexType name="type_etudiant">
         <xs:attribute name="numInscription" type="xs:string" use="required"/>
-        <xs:attribute name="nom" type="xs:string"  use="required"/>
-        <xs:attribute name="prenom" type="xs:string"  use="required"/>
+        <xs:attribute name="nom" type="xs:string" use="required"/>
+        <xs:attribute name="prenom" type="xs:string" use="required"/>
     </xs:complexType>
-    
-    <!-- definition complex Type   modules --> 
+
+    <!-- definition complex Type   modules -->
     <xs:complexType name="type_modules">
-        <xs:sequence>    
+        <xs:sequence>
             <xs:element ref="module" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
-    
+
     <!-- definition complex Type   module -->
     <xs:complexType name="type_module">
         <xs:attribute name="idModule" type="xs:string" use="required"/>
-        <xs:attribute name="nomModule" type="xs:string"  use="required"/>
+        <xs:attribute name="nomModule" type="xs:string" use="required"/>
     </xs:complexType>
-    
+
 </xs:schema>
