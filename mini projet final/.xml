@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<promotion option="L" niveau="1"><etudiants><etudiant numInscription="1" nom="nom1" prenom="prenom1"/><etudiant numInscription="2" nom="nom2" prenom="prenom2"/><etudiant numInscription="3" nom="nom3" prenom="prenom3"/><etudiant numInscription="4" nom="nom4" prenom="prenom4"/></etudiants><modules><module idModule="1" nomModule="M1"/><module idModule="2" nomModule="M2"/><module idModule="3" nomModule="M3"/></modules></promotion>
