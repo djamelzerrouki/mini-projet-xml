@@ -18,8 +18,8 @@
             <xs:simpleContent>
                 <xs:extension base="xs:string">
                     <xs:attribute  name="jour" type="type_jour" use="required"/>
-                    <xs:attribute  name="debut" type="xs:time" use="required" />
-                    <xs:attribute  name="fin" type="xs:time" use="required" />
+                    <xs:attribute  name="debut" type="debutdate" use="required" />
+                    <xs:attribute  name="fin" type="findate" use="required" />
                     <xs:attribute  name="prof" type="xs:string" use="required"/>
                     <xs:attribute  name="module" type="xs:string" use="required" />
                     <xs:attribute name="salle" type="xs:string"  use="required"/>
@@ -32,15 +32,38 @@
     <!-- spec  simple type -->
     <xs:simpleType name="type_spec">
         <xs:restriction base="xs:string">
-            <xs:pattern value="2MGL|2MGI|2MRT|1MGL|1MGI|1MRT|1L|2L|3L"></xs:pattern>        
+            <!--    <xs:pattern value="2MGL|2MGI|2MRT|1MGL|1MGI|1MRT|1L|2L|3L"></xs:pattern>    -->    
         </xs:restriction>
     </xs:simpleType>
     
     <!-- jour  simple type -->
     <xs:simpleType name="type_jour">
         <xs:restriction base="xs:string">
-            <xs:pattern value="dimanche|lundi|mardi|mercredi|jeudi"></xs:pattern>        
+            <xs:pattern value="Dimanche|Lundi|Mardi|Mercredi|Jeudi"></xs:pattern>        
         </xs:restriction>
     </xs:simpleType>
-       
+    
+    
+    <!-- date debut   simple type -->
+    <xs:simpleType name="debutdate">
+        
+        <xs:restriction base="xs:time">
+            <xs:enumeration value="08:00:00"/>
+            <xs:enumeration value="09:30:00"/>
+            <xs:enumeration value="11:00:00"/>
+            <xs:enumeration value="14:00:00"/>
+            <xs:enumeration value="15:30:00"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- date fin   simple type -->
+    
+    <xs:simpleType name="findate">
+        <xs:restriction base="xs:time">
+            <xs:enumeration value="09:30:00"/>
+            <xs:enumeration value="11:00:00"/>
+            <xs:enumeration value="12:30:00"/>  
+            <xs:enumeration value="15:30:00"/>
+            <xs:enumeration value="17:00:00"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

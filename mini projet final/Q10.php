@@ -2,6 +2,35 @@
 <html>
 <head>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+</style>
 <style>
   * {margin: 0; padding: 0;}
 #container {height: 100%; width:100%; font-size: 0;}
@@ -81,6 +110,16 @@ label{
      
 </head>
 <body>
+    <ul>
+  <li><a href="Q10.php">Home</a></li>
+    <li><a href="q3andq2.php">valide xml Q3</a></li>
+  <li><a href="Q4.php">promotion Q4</a></li>
+  <li><a href="Q5run.php">emploi de temps Q5</a></li>
+      <li><a href="q3andq2.php">valide xml Q7</a></li>
+        <li><a href="Q8run.php">emploi de temps Q8</a></li>
+  <li><a href="Q9.php">Q9</a></li>
+  <li style="float:right"><a class="active" href="#about">About</a></li>
+</ul>
  
 <script>
 function suprimer_val() {
@@ -134,7 +173,8 @@ function loadDoc() {
   var table="<tr><th>jour</th><th>debut</th><th>fin</th><th>prof</th><th>module</th><th>salle</th></tr>";
    
   var x = xmlDoc.getElementsByTagName('seance');
-    
+
+ 
     for (i = 0; i < x.length; i++) {
     table += "<tr><td>" +
 	x[i].getAttribute("jour") +"</td>";
@@ -182,6 +222,17 @@ $stmt2->store_result();
 $stmt->bind_result($nom_ens);
 $stmt1->bind_result($nom_mod);
 $stmt2->bind_result($nom_salle);
+    $sql3 = "SELECT nom_speci, niveau,id_promo 
+        from specialite s,promotion
+            WHERE s.id_speci=promotion.id_speci";
+ 
+$stmt3 = $mysqli->prepare($sql3);
+$stmt3->execute();
+$stmt3->store_result();
+/* Insertion de la variable */
+$stmt3->bind_result($nom_speci,$niveau,$id_promo);
+
+
      ?>
  
     <h1>Emploi du temps </h1>
@@ -191,10 +242,18 @@ $stmt2->bind_result($nom_salle);
        <h2>Ajouter un emploi </h2>
 
 <form>  
+      <label for="promotion">Choisir la promotion</label> 
+<select id ="promo" name="promo" ">
+   /* Récupération des valeurs */
+<?php /* Récupération des valeurs */
+   while ($stmt3->fetch()) {
+    $promo=($niveau).($nom_speci);
+   echo "<option value= ".$id_promo.">"  .$promo . "</option>";}
+  ?>
+ </select>
 <label for="jour">Jour</label>
     <select id="jour" name="jour">
-	  <option value=""></option>
-      <option value="Dimanche">Dimanche</option>
+       <option value="Dimanche">Dimanche</option>
       <option value="Lundi">Lundi</option>
       <option value="Mardi">Mardi</option>
       <option value="Mercredi">Mercredi</option>
@@ -202,16 +261,34 @@ $stmt2->bind_result($nom_salle);
 
     </select>
     <label for="debut">Heure de debut  :</label>
-    <input type="time" id="debut" name="debut" placeholder="Heure de debut  ...">
+        <select id="debut" name="debut">
+       <option value="08:00:00">08:00:00</option>
+      <option value="09:30:00">09:30:00</option>
+      <option value="11:00:00">11:00:00</option>
+      <option value="14:00:00">14:00:00</option>
+      <option value="15:30:00">15:30:00</option>
 
+    </select>
+    <!-- 
+    <input type="time" id="debut" name="debut" placeholder="Heure de debut  ...">
+--> 
       
           <label for="debut">Heure de fin  :</label>
+          <select id="fin" name="fin">
+       <option value="09:30:00">09:30:00</option>
+      <option value="11:00:00">11:00:00</option>
+      <option value="12:30:00">12:30:00</option>  
+      <option value="15:30:00">15:30:00</option>
+      <option value="17:00:00">17:00:00</option>
+
+
+    </select>
+   <!--
     <input type="time" id="fin" name="fin" placeholder="Heure de fin  ...">
-      
+      --> 
     <label for="prof">Prof</label>
     <select id="prof" name="prof" >
-	<option value= ""></option>
-   <?php /* Récupération des valeurs */
+    <?php /* Récupération des valeurs */
    while ($stmt->fetch()) { 
 		
    echo "<option value= ".$nom_ens.">"  .$nom_ens. "</option>";}
@@ -221,8 +298,7 @@ $stmt2->bind_result($nom_salle);
       
          <label for="module">Module</label>
     <select id="module" name="module">
-      <option value= ""></option> 
-   <?php /* Récupération des valeurs */
+    <?php /* Récupération des valeurs */
    while ($stmt1->fetch()) {
 		
    echo "<option value= ".$nom_mod.">"  .$nom_mod . "</option>";}
@@ -231,8 +307,7 @@ $stmt2->bind_result($nom_salle);
     </select>
 	<label for="salle">Salle</label>
     <select id="salle" name="salle">
-      <option value= ""></option>
-   <?php /* Récupération des valeurs */
+    <?php /* Récupération des valeurs */
    while ($stmt2->fetch()) {
 		
    echo "<option value= ".$nom_salle.">"  .$nom_salle. "</option>";}

@@ -4,7 +4,7 @@
     <xsl:output method="html" indent="yes"/>
     <xsl:template match="/">
         <html>
-            <head> Mini projet</head>
+            <head>  Q5</head>
             <body>
                 <table align="center" border="1">
                     <tr>

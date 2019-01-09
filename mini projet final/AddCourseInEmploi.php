@@ -12,6 +12,7 @@
 	 $dom->load('emploi.xml'); 
 // add in to file emploi.xml 
 	 $seance = $dom->createElement('seance');
+
      $seance->setAttribute('jour', $jour);
 	 $seance->setAttribute('debut', $heure_debut);
 	 $seance->setAttribute('fin', $heure_fin);
@@ -22,7 +23,7 @@
      $dom->documentElement->appendChild($seance);
      $dom->save('emploi.xml');
     
-	 
+  
 	 ?>
 
  

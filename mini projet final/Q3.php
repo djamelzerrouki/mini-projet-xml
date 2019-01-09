@@ -33,6 +33,7 @@ $stmt->bind_result($nom_speci,$niveau,$jour, $heure_debut,$heure_fin ,$nom_ens ,
    $filePath = $filename.'.xml';
    $dom     = new DOMDocument('1.0', 'utf-8'); 
    //  $stmt->fetch();
+//ERR hahraz rohak ??? 
      $prom = ($niveau).($nom_speci) ;
      $emploi = $dom->createElement('emploi');
 	 $emploi->setAttribute('promotion',$prom );

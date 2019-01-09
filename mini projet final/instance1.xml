@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emploi xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="file:/C:/Program%20Files%20(x86)/EasyPHP-DevServer-14.1VC9/data/localweb/projects/eclipse-workspacePHP/projct/xml/mini%20projet%20final/Q2.xsd" promotion="2MGL">
+    <seance jour="dimanche" debut="08:00:00" fin="09:30:00" prof="prof0" module="module0" salle="salle0">seance0</seance>
+    <seance jour="dimanche" debut="08:00:00" fin="09:30:00" prof="prof1" module="module1" salle="salle1">seance1</seance>
+</emploi>
